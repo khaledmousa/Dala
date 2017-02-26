@@ -1,4 +1,4 @@
-# 1 "DalaLexer.fsl"
+# 1 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
  
 module DalaLexer
 
@@ -28,7 +28,7 @@ let keywords =
         "return", RETURN;   
     ] |> Map.ofList
 
-# 31 "DalaLexer.fs"
+# 31 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
 let trans : uint16[] array = 
     [| 
     (* State 0 *)
@@ -77,57 +77,57 @@ and tokenize  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_toke
 and _fslex_tokenize  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 44 "DalaLexer.fsl"
+# 44 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  tokenize lexbuf 
-# 82 "DalaLexer.fs"
+# 82 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 1 -> ( 
-# 45 "DalaLexer.fsl"
+# 45 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  INT(Int32.Parse(LexBuffer<_>.LexemeString lexbuf)) 
-# 87 "DalaLexer.fs"
+# 87 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 2 -> ( 
-# 46 "DalaLexer.fsl"
+# 46 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  ops.[LexBuffer<_>.LexemeString lexbuf] 
-# 92 "DalaLexer.fs"
+# 92 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 3 -> ( 
-# 47 "DalaLexer.fsl"
+# 47 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  OPENBRACKET 
-# 97 "DalaLexer.fs"
+# 97 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 4 -> ( 
-# 48 "DalaLexer.fsl"
+# 48 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  CLOSINGBRACKET 
-# 102 "DalaLexer.fs"
+# 102 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 5 -> ( 
-# 49 "DalaLexer.fsl"
+# 49 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  BEGINSCOPE 
-# 107 "DalaLexer.fs"
+# 107 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 6 -> ( 
-# 50 "DalaLexer.fsl"
+# 50 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  ENDSCOPE 
-# 112 "DalaLexer.fs"
+# 112 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 7 -> ( 
-# 51 "DalaLexer.fsl"
+# 51 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  ENDSTATEMENT 
-# 117 "DalaLexer.fs"
+# 117 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 8 -> ( 
-# 52 "DalaLexer.fsl"
+# 52 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                  match keywords.TryFind(LexBuffer<_>.LexemeString  lexbuf) with   
                                  | Some(token) -> token   
                                  | None -> ID(LexBuffer<_>.LexemeString  lexbuf) 
-# 124 "DalaLexer.fs"
+# 124 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | 9 -> ( 
-# 55 "DalaLexer.fsl"
+# 55 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
                                 EOF
-# 129 "DalaLexer.fs"
+# 129 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
           )
   | _ -> failwith "tokenize"
 
-# 3000000 "DalaLexer.fs"
+# 3000000 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"

@@ -51,13 +51,22 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
+  <Import Project="..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets" Condition="Exists('..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets'))" />
+  </Target>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Dala.fs" />
     <Compile Include="DalaParser.fs" />
     <Compile Include="DalaLexer.fs" />
-    <Content Include="packages.config" />
     <Compile Include="DalaEngine.fs" />
+    <None Include="DalaLexer.fsl" />
+    <None Include="DalaParser.fsy" />
+    <Content Include="packages.config" />    
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
@@ -73,13 +82,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
   </ItemGroup>
-  <Import Project="..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets" Condition="Exists('..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\FsLexYacc.7.0.5\build\FsLexYacc.targets'))" />
-  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>$(ProjectDir)\..\packages\FsLexYacc.7.0.5\build\fslex.exe $(ProjectDir)\DalaLexer.fsl -o $(ProjectDir)\DalaLexer.fs --unicode
+
+$(ProjectDir)\..\packages\FsLexYacc.7.0.5\build\fsyacc.exe $(ProjectDir)\DalaParser.fsy -o $(ProjectDir)\DalaParser.fs --module DalaParser</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
