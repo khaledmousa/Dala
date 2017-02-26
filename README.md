@@ -10,4 +10,4 @@ Statements in the REPL console are evaluated after a semicolon is entered, the l
 
 Below is a simple example of an function that adds two numbers:
 
-![Example add](https://github.com/khaledmousa/Dala/tree/master/img/add.png)
+![Example add](/img/add.png)
