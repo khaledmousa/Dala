@@ -1,0 +1,55 @@
+{
+module DalaLexer
+
+open System
+open DalaParser
+open Microsoft.FSharp.Text.Lexing
+
+let ops = 
+    [
+        "+", PLUS;
+        "-", MINUS;
+        "*", MULT;
+        "/", DIV;
+        "->", ASSIGN;
+        ">", GT;
+        "<", LT;
+        "==", EQ;
+        ">=", GTE;
+        "<=", LTE;
+        "!=", NE;
+    ] |> Map.ofList
+
+let keywords = 
+    [
+        "let", LET;
+        "if", IF;     
+        "return", RETURN;   
+    ] |> Map.ofList
+}
+
+let char        = ['a'-'z' 'A'-'Z']
+let identifier  = char(char|digit|['-' '_' '.'])*
+let digit           = ['0'-'9']
+let int             = digit+
+let whitespace      = [' ' '\t' '\r' '\n' ]
+let operator        = "+" | "-" | "*" | "/" | "->" | "==" | "!=" | "<" | ">" | "<=" | ">="
+let openbracket     = "("
+let closebracket    = ")"
+let beginscope      = "{"
+let endscope        = "}"
+let endstatement    = ";"
+
+rule tokenize = parse
+| whitespace    { tokenize lexbuf }
+| int           { INT(Int32.Parse(LexBuffer<_>.LexemeString lexbuf)) }
+| operator      { ops.[LexBuffer<_>.LexemeString lexbuf] }
+| openbracket   { OPENBRACKET }
+| closebracket  { CLOSINGBRACKET }
+| beginscope    { BEGINSCOPE }
+| endscope      { ENDSCOPE }
+| endstatement  { ENDSTATEMENT }
+| identifier    { match keywords.TryFind(LexBuffer<_>.LexemeString  lexbuf) with   
+                  | Some(token) -> token   
+                  | None -> ID(LexBuffer<_>.LexemeString  lexbuf) }   
+| eof           {EOF}

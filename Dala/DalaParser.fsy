@@ -1,0 +1,61 @@
+%{
+open Dala
+%}
+
+%token <string> ID //identifier
+%token <int> INT
+%token PLUS MINUS MULT DIV ASSIGN EQ NE LT GT LTE GTE
+%token IF RETURN
+%token OPENBRACKET CLOSINGBRACKET ENDSTATEMENT
+%token BEGINSCOPE ENDSCOPE
+%token LET
+%token EOF
+%left BEGINSCOPE ENDSCOPE
+%left ID
+%left ASSIGN
+%left EQ NE LT GT LTE GTE
+%left PLUS MINUS
+%left MULT DIV
+%left OPENBRACKET
+
+%nonassoc UMINUS //uniary minus
+
+//start
+%start start
+%type <Dala.stmt> start
+
+%%
+
+start: statement
+       EOF { $1 }
+
+statement_list:
+    | statement { [$1] }
+    | statement_list statement { $2::$1 }
+
+statement:
+        | expression { Expr $1 }
+        | LET ID OPENBRACKET ID CLOSINGBRACKET ASSIGN BEGINSCOPE statement_list ENDSCOPE { Fun($2,$4,$8) }
+        | LET ID ASSIGN expression { Assignment($2,$4) }   
+        | IF OPENBRACKET expression CLOSINGBRACKET BEGINSCOPE statement_list ENDSCOPE { IfCond($3,$6) }     
+        | RETURN expression { Ret($2) }
+
+expression:
+        | INT { Int($1) }
+        | ID  { Id($1) }
+        | MINUS expression %prec UMINUS { EXP(Int(-1), Mult, $2) }
+        | expression op expression { EXP($1, $2, $3) }
+        | OPENBRACKET expression CLOSINGBRACKET { $2 }  
+        | expression OPENBRACKET expression CLOSINGBRACKET { Invoc($1,$3) }
+
+op: 
+    | MULT {Mult} 
+    | DIV {Div} 
+    | PLUS {Plus} 
+    | MINUS {Minus} 
+    | EQ {Eq}
+    | NE {Ne}
+    | LT {Lt}
+    | GT {Gt}
+    | LTE {Lte}
+    | GTE {Gte}
