@@ -1,4 +1,4 @@
-# 1 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 1 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
  
 module DalaLexer
 
@@ -28,7 +28,7 @@ let keywords =
         "return", RETURN;   
     ] |> Map.ofList
 
-# 31 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 31 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
 let trans : uint16[] array = 
     [| 
     (* State 0 *)
@@ -77,57 +77,57 @@ and tokenize  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_toke
 and _fslex_tokenize  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 44 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 44 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  tokenize lexbuf 
-# 82 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 82 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 1 -> ( 
-# 45 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 45 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  INT(Int32.Parse(LexBuffer<_>.LexemeString lexbuf)) 
-# 87 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 87 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 2 -> ( 
-# 46 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 46 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  ops.[LexBuffer<_>.LexemeString lexbuf] 
-# 92 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 92 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 3 -> ( 
-# 47 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 47 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  OPENBRACKET 
-# 97 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 97 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 4 -> ( 
-# 48 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 48 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  CLOSINGBRACKET 
-# 102 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 102 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 5 -> ( 
-# 49 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 49 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  BEGINSCOPE 
-# 107 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 107 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 6 -> ( 
-# 50 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 50 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  ENDSCOPE 
-# 112 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 112 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 7 -> ( 
-# 51 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 51 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  ENDSTATEMENT 
-# 117 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 117 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 8 -> ( 
-# 52 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 52 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                  match keywords.TryFind(LexBuffer<_>.LexemeString  lexbuf) with   
                                  | Some(token) -> token   
                                  | None -> ID(LexBuffer<_>.LexemeString  lexbuf) 
-# 124 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 124 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | 9 -> ( 
-# 55 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fsl"
+# 55 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fsl"
                                 EOF
-# 129 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 129 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
           )
   | _ -> failwith "tokenize"
 
-# 3000000 "D:\Khaled\Github\Public\Dala\Dala\\DalaLexer.fs"
+# 3000000 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaLexer.fs"
