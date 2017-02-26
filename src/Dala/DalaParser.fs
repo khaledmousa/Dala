@@ -3,11 +3,11 @@ module DalaParser
 #nowarn "64";; // turn off warnings that type variables used in production annotations are instantiated to concrete type
 open Microsoft.FSharp.Text.Lexing
 open Microsoft.FSharp.Text.Parsing.ParseHelpers
-# 1 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 1 "DalaParser.fsy"
 
 open Dala
 
-# 10 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 10 "DalaParser.fs"
 // This type is the type of tokens accepted by the parser
 type token = 
   | EOF
@@ -217,7 +217,7 @@ let _fsyacc_reductionSymbolCounts = [|1us; 2us; 1us; 2us; 1us; 9us; 4us; 7us; 2u
 let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 2us; 3us; 3us; 3us; 3us; 3us; 4us; 4us; 4us; 4us; 4us; 4us; 5us; 5us; 5us; 5us; 5us; 5us; 5us; 5us; 5us; 5us; |]
 let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 16385us; 16386us; 65535us; 65535us; 16387us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16389us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16391us; 65535us; 65535us; 16393us; 16394us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 65535us; 16397us; 65535us; 16398us; 16399us; 16400us; 16401us; 16402us; 16403us; 16404us; 16405us; 16406us; 16407us; 16408us; |]
 let _fsyacc_reductions ()  =    [| 
-# 220 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 220 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Dala.stmt)) in
             Microsoft.FSharp.Core.Operators.box
@@ -226,52 +226,52 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_startstart));
-# 229 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 229 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'statement)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 30 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 30 "DalaParser.fsy"
                                   _1 
                    )
-# 30 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 30 "DalaParser.fsy"
                  : Dala.stmt));
-# 240 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 240 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'statement)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 33 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 33 "DalaParser.fsy"
                                        [_1] 
                    )
-# 33 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 33 "DalaParser.fsy"
                  : 'statement_list));
-# 251 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 251 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'statement_list)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'statement)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 34 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 34 "DalaParser.fsy"
                                                       _2::_1 
                    )
-# 34 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 34 "DalaParser.fsy"
                  : 'statement_list));
-# 263 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 263 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 37 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 37 "DalaParser.fsy"
                                             Expr _1 
                    )
-# 37 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 37 "DalaParser.fsy"
                  : 'statement));
-# 274 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 274 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
@@ -279,80 +279,80 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 38 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 38 "DalaParser.fsy"
                                                                                                                 Fun(_2,_4,_8) 
                    )
-# 38 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 38 "DalaParser.fsy"
                  : 'statement));
-# 287 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 287 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             let _4 = (let data = parseState.GetInput(4) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 39 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 39 "DalaParser.fsy"
                                                           Assignment(_2,_4) 
                    )
-# 39 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 39 "DalaParser.fsy"
                  : 'statement));
-# 299 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 299 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             let _6 = (let data = parseState.GetInput(6) in (Microsoft.FSharp.Core.Operators.unbox data : 'statement_list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 40 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 40 "DalaParser.fsy"
                                                                                                              IfCond(_3,_6) 
                    )
-# 40 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 40 "DalaParser.fsy"
                  : 'statement));
-# 311 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 311 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 41 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 41 "DalaParser.fsy"
                                                    Ret(_2) 
                    )
-# 41 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 41 "DalaParser.fsy"
                  : 'statement));
-# 322 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 322 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : int)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 44 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 44 "DalaParser.fsy"
                                      Int(_1) 
                    )
-# 44 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 44 "DalaParser.fsy"
                  : 'expression));
-# 333 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 333 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 45 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 45 "DalaParser.fsy"
                                      Id(_1) 
                    )
-# 45 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 45 "DalaParser.fsy"
                  : 'expression));
-# 344 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 344 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 46 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 46 "DalaParser.fsy"
                                                                EXP(Int(-1), Mult, _2) 
                    )
-# 46 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 46 "DalaParser.fsy"
                  : 'expression));
-# 355 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 355 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'op)) in
@@ -360,136 +360,136 @@ let _fsyacc_reductions ()  =    [|
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 47 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 47 "DalaParser.fsy"
                                                           EXP(_1, _2, _3) 
                    )
-# 47 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 47 "DalaParser.fsy"
                  : 'expression));
-# 368 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 368 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _2 = (let data = parseState.GetInput(2) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 48 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 48 "DalaParser.fsy"
                                                                        _2 
                    )
-# 48 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 48 "DalaParser.fsy"
                  : 'expression));
-# 379 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 379 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : 'expression)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 49 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 49 "DalaParser.fsy"
                                                                                   Invoc(_1,_3) 
                    )
-# 49 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 49 "DalaParser.fsy"
                  : 'expression));
-# 391 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 391 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 52 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 52 "DalaParser.fsy"
                                  Mult
                    )
-# 52 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 52 "DalaParser.fsy"
                  : 'op));
-# 401 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 401 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 53 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 53 "DalaParser.fsy"
                                 Div
                    )
-# 53 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 53 "DalaParser.fsy"
                  : 'op));
-# 411 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 411 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 54 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 54 "DalaParser.fsy"
                                  Plus
                    )
-# 54 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 54 "DalaParser.fsy"
                  : 'op));
-# 421 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 421 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 55 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 55 "DalaParser.fsy"
                                   Minus
                    )
-# 55 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 55 "DalaParser.fsy"
                  : 'op));
-# 431 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 431 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 56 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 56 "DalaParser.fsy"
                                Eq
                    )
-# 56 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 56 "DalaParser.fsy"
                  : 'op));
-# 441 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 441 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 57 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 57 "DalaParser.fsy"
                                Ne
                    )
-# 57 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 57 "DalaParser.fsy"
                  : 'op));
-# 451 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 451 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 58 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 58 "DalaParser.fsy"
                                Lt
                    )
-# 58 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 58 "DalaParser.fsy"
                  : 'op));
-# 461 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 461 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 59 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 59 "DalaParser.fsy"
                                Gt
                    )
-# 59 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 59 "DalaParser.fsy"
                  : 'op));
-# 471 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 471 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 60 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 60 "DalaParser.fsy"
                                 Lte
                    )
-# 60 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 60 "DalaParser.fsy"
                  : 'op));
-# 481 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 481 "DalaParser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 61 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 61 "DalaParser.fsy"
                                 Gte
                    )
-# 61 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fsy"
+# 61 "DalaParser.fsy"
                  : 'op));
 |]
-# 492 "D:\Khaled\Github\Public\Dala\src\Dala\\DalaParser.fs"
+# 492 "DalaParser.fs"
 let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;
