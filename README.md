@@ -8,7 +8,7 @@ The language grammar uses F#'s [FsLex and FsYacc](https://fsprojects.github.io/F
 
 Statements in the REPL console are evaluated after a semicolon is entered, the language itself has no semicolons yet.
 
-Below is a simple example of an function that adds two numbers:
+Below is a simple example of a function that adds two numbers:
 
 ![Example add](/img/add.png)
 
