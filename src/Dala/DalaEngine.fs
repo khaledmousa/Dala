@@ -62,7 +62,7 @@ and Eval statement = // (bag:Dictionary<string, int>) =
             res
         | Fun(name, param, body) -> 
             funcs.[name] <- Fun(name, param, body)
-            Function(name, funcs.[name])
+            Function(name, funcs.[name])        
         |_ -> Val -1
         
 and EvalFunction expression =
@@ -89,11 +89,16 @@ and EvalFunction expression =
 
 and EvalFunctionBody stmtList =
     let mutable ret = None    
-    let evalStatement s = 
+    let rec evalStatement s = 
         match s with
-            | Ret rs -> 
+            | Ret rs when ret = None -> 
                 ret <- EvalExpression rs
-            | _ -> Eval s |> ignore
+            | IfCond(expression, body) when ret = None ->
+                match EvalExpression expression with
+                    | Val v when v >= 1 -> body |> List.iter(fun s -> evalStatement s |> ignore)                    
+                    | _ -> ignore 0
+            | _  when ret = None -> Eval s |> ignore
+            | _ -> ignore 0
     stmtList |> List.rev |> List.iter evalStatement
     ret
     

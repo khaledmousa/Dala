@@ -17,7 +17,7 @@ let ops =
         "==", EQ;
         ">=", GTE;
         "<=", LTE;
-        "!=", NE;
+        "!=", NE;        
     ] |> Map.ofList
 
 let keywords = 
@@ -29,7 +29,7 @@ let keywords =
 }
 
 let char        = ['a'-'z' 'A'-'Z']
-let identifier  = char(char|digit|['-' '_' '.'])*
+let identifier  = char(char|digit|['_' '.'])*
 let digit           = ['0'-'9']
 let int             = digit+
 let whitespace      = [' ' '\t' '\r' '\n' ]
