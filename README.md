@@ -1,6 +1,6 @@
 # Dala
 
-Dala is currently an incomplete language and interpreter. The idea to create a purely functional language where there are no variables, only single-parameter functions.
+Dala is an attempt at an interpreted functional language where there are no variables, only single-parameter functions.
 
 The current implementation is still in very early stages: it only supports integer values and has no real scope management (i.e. everything is globally scoped)
 
