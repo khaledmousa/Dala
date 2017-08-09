@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# FsLEx/FsYacc
+Dala/src/Dala/DalaParser.fs
+Dala/src/Dala/DalaParser.fsi
+Dala/src/Dala/DalaLexer.fs

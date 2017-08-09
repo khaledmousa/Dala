@@ -10,6 +10,7 @@ namespace Dalar
     {
         static void Main(string[] args)
         {
+            var _ = DalaEngine.InitScope;
             var input = string.Empty;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Welcome to the Dala REPL!");
