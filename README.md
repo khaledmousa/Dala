@@ -2,7 +2,7 @@
 
 Dala is an attempt at an interpreted functional language where there are no variables, only single-parameter functions.
 
-The current implementation is still in very early stages: it only supports integer values and has no real scope management (i.e. everything is globally scoped)
+The current implementation is still in very early stages: it only supports integer values and very basic flow.
 
 The language grammar uses F#'s [FsLex and FsYacc](https://fsprojects.github.io/FsLexYacc/), the interpreter is written in F#, and the REPL is in C#. 
 
